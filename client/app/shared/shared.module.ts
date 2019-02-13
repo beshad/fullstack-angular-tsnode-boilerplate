@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgMaterialModule } from './ngmaterial.module';
+import { NgxBootstrapModule } from './ngxbootstrap.module';
 import { ToastComponent } from './toast/toast.component';
 import { LoadingComponent } from './loading/loading.component';
 
@@ -11,7 +13,9 @@ import { LoadingComponent } from './loading/loading.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMaterialModule,
+    NgxBootstrapModule
   ],
   exports: [
     // Shared Modules
@@ -19,6 +23,8 @@ import { LoadingComponent } from './loading/loading.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgMaterialModule,
+    NgxBootstrapModule,
     // Shared Components
     ToastComponent,
     LoadingComponent

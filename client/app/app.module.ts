@@ -21,6 +21,9 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { PlatformModule } from '@angular/cdk/platform';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -40,6 +43,8 @@ export function tokenGetter() {
   imports: [
     AppRoutingModule,
     SharedModule,
+    ScrollingModule,
+    PlatformModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

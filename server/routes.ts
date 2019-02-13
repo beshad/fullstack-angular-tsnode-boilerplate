@@ -1,33 +1,16 @@
-import * as express from 'express';
+import * as path from 'path';
 
-import CatCtrl from './api/cats/cat.controller';
-import UserCtrl from './api/users/user.controller';
+export default function (app) {
 
-export default function setRoutes(app) {
+  app.use('/api/users', require('./api/user'));
+  app.use('/api/cats', require('./api/cat'));
 
-  const router = express.Router();
+  app.use('/auth', require('./auth').default);
 
-  const catCtrl = new CatCtrl();
-  const userCtrl = new UserCtrl();
-
-  // Cats
-  router.route('/cats').get(catCtrl.getAll);
-  router.route('/cats/count').get(catCtrl.count);
-  router.route('/cat').post(catCtrl.insert);
-  router.route('/cat/:id').get(catCtrl.get);
-  router.route('/cat/:id').put(catCtrl.update);
-  router.route('/cat/:id').delete(catCtrl.delete);
-
-  // Users
-  router.route('/login').post(userCtrl.login);
-  router.route('/users').get(userCtrl.getAll);
-  router.route('/users/count').get(userCtrl.count);
-  router.route('/user').post(userCtrl.insert);
-  router.route('/user/:id').get(userCtrl.get);
-  router.route('/user/:id').put(userCtrl.update);
-  router.route('/user/:id').delete(userCtrl.delete);
-
-  // Apply the routes to our application with the prefix /api
-  app.use('/api', router);
+  // All other routes should redirect to the index.html
+  app.route('/*')
+    .get((req, res) => {
+      res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
+    });
 
 }

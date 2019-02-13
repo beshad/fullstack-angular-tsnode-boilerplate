@@ -3,7 +3,7 @@ import { describe, it } from 'mocha';
 
 process.env.NODE_ENV = 'test';
 import { app } from '../app';
-import Cat from '../api/cats/cat.model';
+import Cat from '../api/cat/cat.model';
 
 chai.use(require('chai-http')).should();
 

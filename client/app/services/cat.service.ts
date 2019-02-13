@@ -18,19 +18,19 @@ export class CatService {
   }
 
   addCat(cat: Cat): Observable<Cat> {
-    return this.http.post<Cat>('/api/cat', cat);
+    return this.http.post<Cat>('/api/cats/cat', cat);
   }
 
   getCat(cat: Cat): Observable<Cat> {
-    return this.http.get<Cat>(`/api/cat/${cat._id}`);
+    return this.http.get<Cat>(`/api/cats/cat/${cat._id}`);
   }
 
   editCat(cat: Cat): Observable<any> {
-    return this.http.put(`/api/cat/${cat._id}`, cat, { responseType: 'text' });
+    return this.http.put(`/api/cats/cat/${cat._id}`, cat, { responseType: 'text' });
   }
 
   deleteCat(cat: Cat): Observable<any> {
-    return this.http.delete(`/api/cat/${cat._id}`, { responseType: 'text' });
+    return this.http.delete(`/api/cats/cat/${cat._id}`, { responseType: 'text' });
   }
 
 }
