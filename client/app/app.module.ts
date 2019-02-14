@@ -4,6 +4,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { AdminModule } from './admin/admin.module';
+import { NbThemeModule } from '@nebular/theme';
 // Services
 import { CatService } from './services/cat.service';
 import { UserService } from './services/user.service';
@@ -18,11 +20,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
-import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PlatformModule } from '@angular/cdk/platform';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -30,6 +33,7 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
+    AdminComponent,
     AppComponent,
     CatsComponent,
     AboutComponent,
@@ -37,12 +41,12 @@ export function tokenGetter() {
     LoginComponent,
     LogoutComponent,
     AccountComponent,
-    AdminComponent,
     NotFoundComponent
   ],
   imports: [
     AppRoutingModule,
     SharedModule,
+    AdminModule,
     ScrollingModule,
     PlatformModule,
     JwtModule.forRoot({
@@ -50,7 +54,9 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         // whitelistedDomains: ['localhost:3000', 'localhost:4200']
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'corporate' })
   ],
   providers: [
     AuthService,

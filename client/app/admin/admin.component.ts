@@ -7,7 +7,18 @@ import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html'
+  templateUrl: './admin.component.html',
+  styles: [`
+  :host nb-layout-column {
+    height: 50vw;
+  }
+  :host nb-layout-column:first-child {
+    background: #edeef7;
+  }
+  :host nb-layout-column:last-child {
+    background: #f4f4f7;
+  }
+`],
 })
 export class AdminComponent implements OnInit {
 
