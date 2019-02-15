@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { DefaultLayoutComponent } from './layout/default-layout/default-layout.component';
+import { AuthComponent } from './auth/auth.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,7 +48,8 @@ export function tokenGetter() {
     NotFoundComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    AuthComponent
   ],
   imports: [
     AppRoutingModule,
