@@ -26,6 +26,9 @@ import { AdminComponent } from './admin/admin.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PlatformModule } from '@angular/cdk/platform';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { DefaultLayoutComponent } from './layout/default-layout/default-layout.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -41,7 +44,10 @@ export function tokenGetter() {
     LoginComponent,
     LogoutComponent,
     AccountComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent,
+    DefaultLayoutComponent
   ],
   imports: [
     AppRoutingModule,

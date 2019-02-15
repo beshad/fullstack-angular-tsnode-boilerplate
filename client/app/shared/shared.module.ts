@@ -7,6 +7,8 @@ import { NgMaterialModule } from './ngmaterial.module';
 import { NgxBootstrapModule } from './ngxbootstrap.module';
 import { ToastComponent } from './toast/toast.component';
 import { LoadingComponent } from './loading/loading.component';
+import { NavComponent } from './nav/nav.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { LoadingComponent } from './loading/loading.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgMaterialModule,
-    NgxBootstrapModule
+    NgxBootstrapModule,
+    RouterModule
   ],
   exports: [
     // Shared Modules
@@ -27,11 +30,13 @@ import { LoadingComponent } from './loading/loading.component';
     NgxBootstrapModule,
     // Shared Components
     ToastComponent,
-    LoadingComponent
+    LoadingComponent,
+    NavComponent
   ],
   declarations: [
     ToastComponent,
-    LoadingComponent
+    LoadingComponent,
+    NavComponent
   ],
   providers: [
     ToastComponent

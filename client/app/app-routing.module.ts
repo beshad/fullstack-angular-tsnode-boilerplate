@@ -13,17 +13,46 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { DefaultLayoutComponent } from './layout/default-layout/default-layout.component';
 
 const routes: Routes = [
-  { path: '', component: AboutComponent },
-  { path: 'cats', component: CatsComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
-  { path: 'notfound', component: NotFoundComponent },
-  { path: '**', redirectTo: '/notfound' },
+  {
+    path: 'admin', component: AdminLayoutComponent,
+    children: [
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'login/:hash', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+    ]
+  }, {
+    path: 'auth', component: AuthLayoutComponent,
+    children: [
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'login/:hash', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+    ]
+  }, {
+    path: '', component: DefaultLayoutComponent,
+    children: [
+      { path: 'home', component: AboutComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'login/:hash', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+    ]
+  },
+  { path: '**', redirectTo: '/notfound' }
+  // { path: '', component: AboutComponent },
+  // { path: 'cats', component: CatsComponent },
+  // { path: 'register', component: RegisterComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'logout', component: LogoutComponent },
+  // { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
+  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
+  // { path: 'notfound', component: NotFoundComponent },
 ];
 
 @NgModule({
