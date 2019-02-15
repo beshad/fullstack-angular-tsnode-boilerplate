@@ -5,13 +5,4 @@
 @include nb-install() {
   @include nb-theme-global();
 };
-// You can add global styles to this file, and also import other style files
 
-body {
-  margin-bottom: 10px;
-  margin-top: 15px;
-}
-
-.input-group {
-  margin-bottom: 15px;
-}
